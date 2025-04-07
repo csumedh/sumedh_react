@@ -1,0 +1,57 @@
+.resources-container {
+    padding: 5% 10%;
+    background-color: #0d1116;
+    color: white;
+  
+    h1 {
+      font-size: 3em;
+      margin-bottom: 40px;
+    }
+  
+    .resource-group {
+      margin-bottom: 40px;
+  
+      h2 {
+        font-size: 1.8em;
+        color: #50fa7b;
+      }
+  
+      ul {
+        list-style: disc;
+        margin-left: 20px;
+  
+        li {
+          margin: 10px 0;
+        }
+      }
+    }
+  }
+  .resource-tile {
+    background: #1e1e1e;
+    color: #e0e0e0;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+  
+    h3 {
+      color: #66d9ef;
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+  
+    .code-steps li {
+      margin-bottom: 20px;
+    }
+  
+    pre {
+      background: #2b2b2b;
+      color: #dcdcdc;
+      padding: 10px;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.85rem;
+      white-space: pre-wrap;
+      overflow-x: auto;
+    }
+  }
+    

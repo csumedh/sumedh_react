@@ -4,9 +4,10 @@ import {
   Timeline,
   Expertise,
   Project,
-  Contact,
+  Education,
   Navigation,
   Footer,
+  Resources,
 } from "./components";
 import FadeIn from './components/FadeIn';
 import './index.scss';
@@ -26,6 +27,12 @@ function App() {
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
       }, []);
 
+    useEffect(() => {
+        document.body.classList.remove('light-mode', 'dark-mode');
+        document.body.classList.add(mode === 'dark' ? 'dark-mode' : 'light-mode');
+      }, [mode]);
+      
+
     return (
     <div className={`main-container ${mode === 'dark' ? 'dark-mode' : 'light-mode'}`}>
         <Navigation parentToChild={{mode}} modeChange={handleModeChange}/>
@@ -33,8 +40,9 @@ function App() {
             <Main/>
             <Expertise/>
             <Timeline/>
+            <Education />
             <Project/>
-            <Contact/>
+            <Resources/>
         </FadeIn>
         <Footer />
     </div>

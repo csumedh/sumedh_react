@@ -17,7 +17,7 @@
   
 .project h2:hover {
     text-decoration: underline;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
 }
   
 .zoom {
@@ -29,6 +29,58 @@
 .zoom:hover {
     transform: scale(1.05);
 }
+
+/* Base Badge */
+.badge {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 4px 12px;
+    font-size: 0.75em;
+    font-weight: 600;
+    color: white;
+    border-radius: 12px;
+    width: fit-content;
+}
+
+/* Badge Variants */
+.badge.capstone {
+    background-color: #6a1b9a;
+}
+
+.badge.robotics {
+    background-color: #ef6c00;
+}
+
+.badge.published {
+    background-color: #2e7d32;
+}
+
+.badge.path-planning {
+    background-color: #00897b;
+}
+
+.badge.reinforcement {
+    background-color: #1565c0;
+}
+
+.badge.smart-mfg {
+    background-color: #455a64; 
+}
+
+.badge.controls {
+    background: #9c27b0; 
+}
+
+.badge.computervision {
+    background: #727e07; 
+}
+.project canvas {
+    margin-top: 20px;
+    border-radius: 10px;
+    width: 100%;
+    height: 400px;
+  }
+  
 
 @media screen {
     @media (max-width: 700px) {
@@ -47,3 +99,14 @@
         }
     }
 }
+.theme-aware-img {
+    transition: filter 0.3s ease;
+  
+    .dark-mode & {
+      filter: none;
+    }
+  
+    .light-mode & {
+      filter: invert(1) hue-rotate(180deg);
+    }
+  }

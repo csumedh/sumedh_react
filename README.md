@@ -1,86 +1,69 @@
-# Developer Portfolio Template 🚀
+# Sumedh's Developer Portfolio 🚀
 
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![Node.js](https://img.shields.io/badge/Node%20js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white) ![npm](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E) ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) ![Sass](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)
 
-## What is this?
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/sumedhchinchmalatpure)
+[![GitHub](https://img.shields.io/badge/GitHub-Profile-black?style=for-the-badge&logo=github)](https://github.com/csumedh)
 
-This simple portfolio template is designed to showcase your past projects, career history, skill sets, and more.
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E) ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) ![Sass](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)
 
-View the [Demo](https://yujisatojr.github.io/react-portfolio-template/).
+## 📌 Overview
 
-**This template is free to use, and no attribution is required.** You can fork or download this repository to customize it for your own use. Please don't forget to leave a ⭐ if you like this portfolio!
+This is my personal portfolio website built using **React + TypeScript**, featuring my:
 
-![screenshot](./src/assets//images/screenshot.png)
+- Projects and Publications  
+- Robotics Research  
+- Education and Work History  
+- Custom Visualizations (e.g., scrollable video, 3D model viewer)  
+- Frequently used hacks and resources
 
-## Features
+➡️ Visit: **[sumedhc.com](https://sumedhc.com)**
 
-✅ Open source (free to use, no attribution required)  
-✅ Responsive design & mobile-friendly  
-✅ Supports both dark and light modes  
-✅ Highly customizable multi-component layout  
-✅ Built with modern technologies (React, TypeScript, JavaScript, and SCSS)  
+> 🚧 Built using an open-source template by [Yuji Sato](https://github.com/yujisatojr/react-portfolio-template) and heavily customized for my own goals.
 
-## Quick Setup
+---
 
-1. Ensure you have [Node.js](https://nodejs.org/) installed. Check your installation by running:
+## ✨ Features
 
-    ```bash
-    node -v
-    ```
+- 🔥 Responsive, dark/light mode support  
+- 💼 Modular components for easy customization  
+- 🎓 Smooth scroll navigation and section anchors  
+- 🎥 Scroll-based and hover-triggered video elements  
+- 📁 Dedicated Resources page with grouped tech hacks  
 
-2. In the project directory, install dependencies:
+---
 
-    ```bash
-    npm install
-    ```
+## 🚀 Quick Start
 
-3. Start the development server:
+Make sure [Node.js](https://nodejs.org/) is installed:
 
-    ```bash
-    npm start
-    ```
+```bash
+node -v
+Install and start the project locally:
 
-4. Open [http://localhost:3000](http://localhost:3000) to view the app in the browser.
+bash
+Copy
+Edit
+npm install
+npm start
+Go to http://localhost:3000 to view the app.
 
-5. Customize the template by navigating to the `/src/components` directory. Modify texts, pictures, and other information as needed.
+To edit content, check /src/components/. All pages and sections (e.g. Main.tsx, Timeline.tsx, Resources.tsx) are modular and easy to modify.
 
-The page will reload if you make edits, and you will see any lint errors in the console.
+🌐 Deployment
+This site is hosted on Netlify with a custom domain via GoDaddy.
 
-If you are interested in creating a mockup image like the ones from the personal projects section, I recommend [Genmoo](https://gemoo.com/tools/browser-mockup-generator/). This website lets you generate sleek looking browser mockups for free.
 
-## Deployment
+🧠 License
+This project uses the MIT License.
 
-You can choose your preferred service (e.g., [Netlify](https://www.netlify.com/), [Render](https://render.com/), [Heroku](https://www.heroku.com/)) for deployment. One of the easiest ways to host this portfolio is using GitHub Pages. Follow the instructions below for a production deploy.
+Original Template: © 2022 Yuji Sato
 
-1. **Set Up GitHub Repository**
+Modified Version: © 2025 Sumedh Chinchmalatpure
 
-    Create a new repository on GitHub for your portfolio app.
+Full license available in LICENSE
 
-2. **Configure `package.json`**
+📷 Mockups & Extras
+Want mockup images for your projects like the ones in this site?
+Use Gemoo Browser Mockup Generator — it's free and fast!
 
-    Edit the following properties in your `package.json` file:
-
-    ```json
-    {
-        "homepage": "https://yourusername.github.io/your-repo-name",
-        "scripts": {
-            "predeploy": "npm run build",
-            "deploy": "gh-pages -d build",
-            ...
-        }
-    }
-    ```
-
-    Replace `yourusername` with your GitHub username and `your-repo-name` with the name of your GitHub repository.
-
-3. **Deploy to GitHub Pages**
-
-    Run the following command to deploy your app:
-
-    ```bash
-    npm run deploy
-    ```
-
-4. **Access Your Deployed App**
-
-    After successfully deploying, you can access your app at `https://yourusername.github.io/your-repo-name`.
+If you found this project helpful or inspiring, feel free to ⭐ the repo!

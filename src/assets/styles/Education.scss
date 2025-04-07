@@ -1,0 +1,134 @@
+.education-custom {
+    background-color: #0d1116; // default dark mode
+    color: white;
+    padding: 100px 5%;
+  
+    h1 {
+      font-size: 3em;
+      margin-bottom: 60px;
+      text-align: left;
+    }
+  
+    .edu-wrapper {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+  
+    .edu-entry {
+      max-width: 600px;
+  
+      .edu-content {
+        img {
+          margin-top: 20px;
+          width: 350px;
+          height: 250px;
+        }
+  
+        h2 {
+          font-size: 1.5em;
+          color: #ccc;
+        }
+  
+        h3 {
+          font-weight: bold;
+          font-size: 1.3em;
+          margin-bottom: 0.2em;
+        }
+  
+        p {
+          margin: 0;
+          font-size: 1.1em;
+        }
+      }
+    }
+  
+    .edu-entry.top {
+      text-align: left;
+    }
+  
+    .edu-entry.bottom {
+      text-align: right;
+      margin-left: auto;
+      margin-top: -150px;
+    }
+  
+    .edu-connector {
+      position: absolute;
+      top: 20px;
+      left: 10%;
+      width: 700px;
+      height: 280px;
+      transform: rotate(0deg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1;
+  
+      .circle {
+        width: 18px;
+        height: 18px;
+        border: 3px solid white;
+        border-radius: 50%;
+        background: black;
+        box-sizing: border-box;
+        flex-shrink: 0;
+      }
+  
+      .line {
+        width: 3px;
+        height: 600px;
+        background: white;
+      }
+    }
+  
+    @keyframes fadeInSlide {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  
+    .edu-entry.animate {
+      animation: fadeInSlide 0.8s ease-out forwards;
+    }
+  
+    // ✅ Light mode override
+    body.light-mode & {
+      background-color: #f9f9f9;
+      color: #111;
+  
+      .edu-content h2,
+      .edu-content h3,
+      .edu-content p {
+        color: #111;
+      }
+  
+      .edu-connector .circle {
+        border-color: #111;
+        background: #fff;
+      }
+  
+      .edu-connector .line {
+        background: #111;
+      }
+    }
+  
+    @media (max-width: 768px) {
+      .edu-entry,
+      .edu-entry.bottom {
+        text-align: left;
+        margin-left: 0;
+      }
+  
+      .edu-connector {
+        display: none;
+      }
+    }
+  }
+  

@@ -1,44 +1,21 @@
 import React from "react";
-import '@fortawesome/free-regular-svg-icons'
+import '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faReact, faDocker, faPython } from '@fortawesome/free-brands-svg-icons';
+import { faRobot, faCogs, faDraftingCompass } from '@fortawesome/free-solid-svg-icons';
 import Chip from '@mui/material/Chip';
 import '../assets/styles/Expertise.scss';
 
-const labelsFirst = [
-    "React",
-    "TypeScript",
-    "JavaScript",
-    "HTML5",
-    "CSS3",
-    "SASS",
-    "Flask",
-    "Python",
-    "SQL",
-    "PostgreSQL",
-    "Postman"
+const labelsProgramming = [
+    "Python", "C++", "MATLAB", "Simulink", "C#", "Java", "Bash"
 ];
 
-const labelsSecond = [
-    "Git",
-    "GitHub Actions",
-    "Docker",
-    "AWS",
-    "Azure",
-    "Linux",
-    "Snowflake",
-    "Pandas",
-    "Selenium",
+const labelsFrameworks = [
+    "ROS", "Gazebo", "OpenCV", "TensorFlow", "PyTorch", "RViz", "RQT"
 ];
 
-const labelsThird = [
-    "OpenAI",
-    "Groq",
-    "LangChain",
-    "Qdrant",
-    "Hugging Face",
-    "LlamaIndex",
-    "Streamlit",
+const labelsDesignAndHardware = [
+    "SolidWorks", "AutoCAD", "Fusion 360", "ANSYS",
+    "LIDAR", "IMU", "GPS", "NVIDIA Jetson", "PLC", "SCADA", "Edge AI", "Linux/Ubuntu"
 ];
 
 function Expertise() {
@@ -47,41 +24,55 @@ function Expertise() {
         <div className="skills-container">
             <h1>Expertise</h1>
             <div className="skills-grid">
+
+                {/* Programming & Control */}
                 <div className="skill">
-                    <FontAwesomeIcon icon={faReact} size="3x"/>
-                    <h3>Full Stack Web Development</h3>
-                    <p>I have built a diverse array of web applications from scratch using modern technologies such as React and Flask. I have a strong proficiency in the SDLC process and frontend + backend development.</p>
+                    <FontAwesomeIcon icon={faCogs} size="3x" />
+                    <h3>Programming & Control Systems</h3>
+                    <p>
+                        Skilled in implementing control algorithms like PID and MPC for real-time robotic systems. 
+                        Proficient in multi-language development including C++, Python, and MATLAB/Simulink for high-performance and simulation-driven workflows.
+                    </p>
                     <div className="flex-chips">
                         <span className="chip-title">Tech stack:</span>
-                        {labelsFirst.map((label, index) => (
+                        {labelsProgramming.map((label, index) => (
                             <Chip key={index} className='chip' label={label} />
                         ))}
                     </div>
                 </div>
 
+                {/* Robotics Frameworks */}
                 <div className="skill">
-                    <FontAwesomeIcon icon={faDocker} size="3x"/>
-                    <h3>DevOps & Automation</h3>
-                    <p>Once the application is built, I help clients set up DevOps testing, CI/CD pipelines, and deployment automation to support the successful Go-Live.</p>
+                    <FontAwesomeIcon icon={faRobot} size="3x" />
+                    <h3>Robotics Frameworks & Simulation</h3>
+                    <p>
+                        Hands-on experience with ROS-based robotic systems and simulation tools like Gazebo and RViz.
+                        Familiar with integrating computer vision and deep learning using OpenCV, TensorFlow, and PyTorch.
+                    </p>
                     <div className="flex-chips">
                         <span className="chip-title">Tech stack:</span>
-                        {labelsSecond.map((label, index) => (
+                        {labelsFrameworks.map((label, index) => (
                             <Chip key={index} className='chip' label={label} />
                         ))}
                     </div>
                 </div>
 
+                {/* Design & Mechatronics */}
                 <div className="skill">
-                    <FontAwesomeIcon icon={faPython} size="3x"/>
-                    <h3>GenAI & LLM</h3>
-                    <p>Stay relevant in the market by leveraging the latest AI models in your projects. I have professional experience building enterprise grade GenAI-enabled solutions to empower intelligent decision making.</p>
+                    <FontAwesomeIcon icon={faDraftingCompass} size="3x" />
+                    <h3>Design, Simulation & Mechatronics</h3>
+                    <p>
+                        Proficient in mechanical design and FEA using SolidWorks, AutoCAD, Fusion 360, and ANSYS.
+                        Experienced with robotic hardware integration including LIDAR, IMUs, GPS, Jetson, and embedded systems.
+                    </p>
                     <div className="flex-chips">
                         <span className="chip-title">Tech stack:</span>
-                        {labelsThird.map((label, index) => (
+                        {labelsDesignAndHardware.map((label, index) => (
                             <Chip key={index} className='chip' label={label} />
                         ))}
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
