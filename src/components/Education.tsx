@@ -22,12 +22,15 @@ function Education() {
       { threshold: 0.2 }
     );
 
-    if (topRef.current) observer.observe(topRef.current);
-    if (bottomRef.current) observer.observe(bottomRef.current);
+    const top = topRef.current;
+    const bottom = bottomRef.current;
+
+    if (top) observer.observe(top);
+    if (bottom) observer.observe(bottom);
 
     return () => {
-      if (topRef.current) observer.unobserve(topRef.current);
-      if (bottomRef.current) observer.unobserve(bottomRef.current);
+      if (top) observer.unobserve(top);
+      if (bottom) observer.unobserve(bottom);
     };
   }, []);
 
