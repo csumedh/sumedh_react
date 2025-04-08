@@ -24,7 +24,7 @@ This is my personal portfolio website built using **React + TypeScript**, featur
 - Frequently used hacks and resources
 
 ➡️ Visit: **[sumedhc.com](https://sumedhc.com)**
-
+[![Netlify Status](https://api.netlify.com/api/v1/badges/53e749b0-d69e-4ccd-bedf-5afa5d76ddcb/deploy-status)](https://app.netlify.com/sites/sumedhcportfolio/deploys)
 > 🚧 Built using an open-source template by [Yuji Sato](https://github.com/yujisatojr/react-portfolio-template) and heavily customized for my own goals.
 
 ---
