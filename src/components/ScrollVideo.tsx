@@ -1,49 +1,68 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import camsetVideo from '../assets/videos/camset.mp4';
 
 const ScrollVideo: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
-  const handleMouseEnter = () => {
-    videoRef.current?.play();
-  };
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      {
+        threshold: 0.5, // 50% of the video is visible
+      }
+    );
 
-  const handleMouseLeave = () => {
-    videoRef.current?.pause();
-  };
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      if (containerRef.current) observer.unobserve(containerRef.current);
+    };
+  }, []);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (isVisible) {
+      video.play().catch(() => {});
+    } else {
+      video.pause();
+    }
+  }, [isVisible]);
 
   return (
-    <a
-      href="https://drive.google.com/file/d/1QAijZqzROOFWq7DK6RPdn-MUgvB7PhnB/view?usp=sharing"
-      target="_blank"
-      rel="noopener noreferrer"
-      style={{ display: 'block', marginBottom: '0.5rem' }}
+    <div
+      ref={containerRef}
+      style={{
+        width: '90%',
+        aspectRatio: '4 / 3',
+        borderRadius: '12px',
+        overflow: 'hidden',
+        marginBottom: '0.5rem',
+      }}
     >
-      <div
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
+      <video
+        ref={videoRef}
+        src={camsetVideo}
+        muted
+        playsInline
+        preload="auto"
+        loop
         style={{
-          width: '90%',
-          aspectRatio: '4 / 3',
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          display: 'block',
           borderRadius: '12px',
-          overflow: 'hidden',
         }}
-      >
-        <video
-          ref={videoRef}
-          src={camsetVideo}
-          muted
-          playsInline
-          preload="auto"
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            display: 'block',
-          }}
-        />
-      </div>
-    </a>
+      />
+    </div>
   );
 };
 

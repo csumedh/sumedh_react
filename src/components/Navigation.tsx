@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate, useLocation } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -16,19 +17,24 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 
 const drawerWidth = 240;
+
+function Navigation({ parentToChild, modeChange }: any) {
+  const { mode } = parentToChild;
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const currentLocation = useLocation();
+  const navigate = useNavigate();
+
+
 const navItems = [
+  ...(currentLocation.pathname === '/resources' ? [['🏠 Home', 'home']] : []), // ← only show on /resources
+  ['About', 'about'],
   ['Expertise', 'expertise'],
   ['Career', 'history'],
   ['Education', 'education'],
   ['Projects', 'projects'],
-  ['Resources', 'resources']
+  ['Resources', 'resources'],
 ];
-
-function Navigation({ parentToChild, modeChange }: any) {
-  const { mode } = parentToChild;
-
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen(prevState => !prevState);
@@ -45,14 +51,26 @@ function Navigation({ parentToChild, modeChange }: any) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (section: string) => {
-    const targetElement = document.getElementById(section);
-    if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth' });
+  const handleNavClick = (id: string) => {
+    if (id === 'resources') {
+      navigate('/resources');
+    } else if (id === 'home') {
+      navigate('/');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      console.error(`Element with id "${section}" not found`);
+      if (currentLocation.pathname !== '/') {
+        navigate('/');
+        setTimeout(() => {
+          const el = document.getElementById(id);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      } else {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
+  
 
   const drawer = (
     <div className="navigation-bar-responsive" onClick={handleDrawerToggle}>
@@ -61,7 +79,7 @@ function Navigation({ parentToChild, modeChange }: any) {
       <List>
         {navItems.map((item) => (
           <ListItem key={item[0]} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }} onClick={() => scrollToSection(item[1])}>
+            <ListItemButton sx={{ textAlign: 'center' }} onClick={() => handleNavClick(item[1])}>
               <ListItemText primary={item[0]} />
             </ListItemButton>
           </ListItem>
@@ -84,23 +102,24 @@ function Navigation({ parentToChild, modeChange }: any) {
           >
             <MenuIcon />
           </IconButton>
-          {mode === 'dark' ? (
-          <LightModeIcon onClick={modeChange} />
-        ) : (
-          <DarkModeIcon onClick={modeChange} />
-        )}
 
-        <div className="desktop-nav">
-          {navItems.map((item) => (
-            <Button
-              key={item[0]}
-              onClick={() => scrollToSection(item[1])}
-              sx={{ color: '#fff' }}
-            >
-              {item[0]}
-            </Button>
-          ))}
-        </div>
+          {mode === 'dark' ? (
+            <LightModeIcon onClick={modeChange} />
+          ) : (
+            <DarkModeIcon onClick={modeChange} />
+          )}
+
+          <div className="desktop-nav">
+            {navItems.map((item) => (
+              <Button
+                key={item[0]}
+                onClick={() => handleNavClick(item[1])}
+                sx={{ color: '#fff' }}
+              >
+                {item[0]}
+              </Button>
+            ))}
+          </div>
         </Toolbar>
       </AppBar>
       <nav>

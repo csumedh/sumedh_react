@@ -1,87 +1,143 @@
-// src/components/Resources.tsx
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../assets/styles/Resources.scss';
+import * as FaIcons from 'react-icons/fa';
+import rawresources from '../data/resources.json';
+
+type ResourceItem =
+  | { type: 'list'; text: string; link?: string }
+  | { type: 'tile'; title: string; steps: { label: string; code: string; link?: string }[] };
+
+type ResourceGroup = {
+  category: string;
+  content: ResourceItem[];
+};
 
 const Resources = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const CopyIcon = FaIcons.FaCopy as unknown as React.FC;
+  const [copied, setCopied] = useState(false);
+  const [data, setData] = useState<ResourceGroup[]>([]);
+
+  useEffect(() => {
+    setData(rawresources as ResourceGroup[]);
+  }, []);
+
+  const highlight = (text: string) => {
+    if (!searchTerm) return text;
+    const regex = new RegExp(`(${searchTerm})`, 'gi');
+    return text.split(regex).map((part, i) =>
+      regex.test(part) ? <mark key={i}>{part}</mark> : part
+    );
+  };
+
+  const copyCode = async (code: string) => {
+    await navigator.clipboard.writeText(code);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const categories = ['All', ...Array.from(new Set(data.map(d => d.category)))];
+
+  const filtered = data
+    .filter(section => selectedCategory === 'All' || section.category === selectedCategory)
+    .map(section => ({
+      ...section,
+      content: section.content
+        .map((item): ResourceItem | null => {
+          if (item.type === 'list') {
+            return item.text.toLowerCase().includes(searchTerm.toLowerCase()) ? item : null;
+          }
+          if (item.type === 'tile') {
+            const matchedSteps = item.steps.filter(step =>
+              step.label.toLowerCase().includes(searchTerm.toLowerCase()) ||
+              step.code.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+            if (
+              item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+              matchedSteps.length > 0
+            ) {
+              return { ...item, steps: matchedSteps };
+            }
+          }
+          return null;
+        })
+        .filter((item): item is ResourceItem => item !== null)
+    }))
+    .filter(section => section.content.length > 0);
+
   return (
     <div className="resources-container" id="resources">
-      <h1>Resources & Hacks</h1>
+      {copied && <div className="copy-toast">Copied to clipboard!</div>}
+      <h1 className="resources-header">🛠️ Hacks / Fixes</h1>
 
-      <div className="resource-group">
-        <h2>Frontend Fixes</h2>
-        <ul>
-          <li>Gazebo, Linux, Windows fixes</li>
-        </ul>
+      <div className="resources-controls">
+        <input
+          type="text"
+          placeholder="Search resources..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
+          {categories.map(cat => <option key={cat}>{cat}</option>)}
+        </select>
       </div>
 
-      <div className="resource-group">
-        <h2>ROS</h2>
-        <div className="resource-tile">
-          <h3>🚀 Get Started with Your First TurtleBot3 Gazebo Launch (ROS 2 Humble)</h3>
-          <ol className="code-steps">
-            <li><strong>Set Up Locale and Sources</strong>
-              <pre>{`sudo apt update && sudo apt install locales
-sudo locale-gen en_US en_US.UTF-8
-sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
-export LANG=en_US.UTF-8`}</pre>
-            </li>
-            <li><strong>Add ROS 2 Repositories</strong>
-              <pre>{`sudo apt install software-properties-common
-sudo add-apt-repository universe
-sudo apt update && sudo apt install curl -y
-curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.key | sudo tee /usr/share/keyrings/ros-archive-keyring.gpg > /dev/null
-
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] \\
-http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main | \\
-sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null`}</pre>
-            </li>
-            <li><strong>Install ROS 2 Humble Desktop</strong>
-              <pre>sudo apt update && sudo apt install ros-humble-desktop -y</pre>
-            </li>
-            <li><strong>Source ROS 2</strong>
-              <pre>{`echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
-source ~/.bashrc`}</pre>
-            </li>
-            <li><strong>Install Build Tools</strong>
-              <pre>{`sudo apt install -y python3-colcon-common-extensions python3-rosdep python3-vcstool git
-sudo rosdep init
-rosdep update`}</pre>
-            </li>
-            <li><strong>Install TurtleBot3</strong>
-              <pre>{`mkdir -p ~/turtlebot3_ws/src
-cd ~/turtlebot3_ws/src
-git clone -b humble https://github.com/ROBOTIS-GIT/turtlebot3.git
-cd ~/turtlebot3_ws
-rosdep install -i --from-path src --rosdistro humble -y
-colcon build --symlink-install
-source install/setup.bash`}</pre>
-            </li>
-            <li><strong>Set TurtleBot3 Environment Variable</strong>
-              <pre>{`echo "export TURTLEBOT3_MODEL=burger" >> ~/.bashrc
-source ~/.bashrc`}</pre>
-            </li>
-            <li><strong>Install Gazebo & Sim Packages</strong>
-              <pre>{`sudo apt install ros-humble-gazebo-ros-pkgs ros-humble-gazebo-ros2-control -y
-sudo apt install ros-humble-turtlebot3-gazebo -y
-sudo apt install gazebo11 libgazebo11-dev -y`}</pre>
-            </li>
-            <li><strong>Launch TurtleBot3 in Gazebo</strong>
-              <pre>{`cd ~/turtlebot3_ws
-source install/setup.bash
-ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py`}</pre>
-            </li>
-          </ol>
+      {filtered.map((section, sectionIdx) => (
+        <div key={sectionIdx} className="resource-group">
+          <h2>{section.category}</h2>
+          {section.content.map((item, idx) => {
+            if (item.type === 'list') {
+              return (
+                <ul key={idx}>
+                  <li>
+                    {highlight(item.text)}
+                    {'link' in item && item.link && (
+                      <>
+                        {' '}
+                        <a
+                          href={item.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="external-link"
+                        >
+                          🔗 Link
+                        </a>
+                      </>
+                    )}
+                  </li>
+                </ul>
+              );
+            } else if (item.type === 'tile') {
+              return (
+                <div key={idx} className="resource-tile">
+                  <h3>{highlight(item.title)}</h3>
+                  <ol className="code-steps">
+                    {item.steps.map((step, i) => (
+                      <li key={i}>
+                        <strong>{highlight(step.label)}</strong>
+                        <div className="code-container">
+                          <pre>{highlight(step.code)}</pre>
+                          {step.link && (
+                            <div className="external-link">
+                              <a href={step.link} target="_blank" rel="noopener noreferrer">
+                                🔗 External Doc
+                              </a>
+                            </div>
+                          )}
+                          <button className="copy-btn" onClick={() => copyCode(step.code)}>
+                            <CopyIcon />
+                          </button>
+                        </div>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              );
+            } else return null;
+          })}
         </div>
-      </div> {/* ✅ this was missing! */}
-
-      <div className="resource-group">
-        <h2>React Tips</h2>
-        <ul>
-          <li>How to persist scroll position</li>
-          <li>Scroll-to-section with smooth animation</li>
-          <li>Using refs with hooks</li>
-        </ul>
-      </div>
+      ))}
     </div>
   );
 };

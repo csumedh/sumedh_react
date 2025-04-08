@@ -3,7 +3,7 @@ import ScrollVideo from './ScrollVideo';
 import mock01 from '../assets/images/mock01.png'; // EV project image
 import mock02 from '../assets/images/mock02.png'; // Robocon project image
 import mock03 from '../assets/images/mock03.png'; // Job shop paper project image
-import mock04 from '../assets/images/mock04.png'; // RDT-RRT path planning project image
+import rdtRrtGif from '../assets/gifs/Picture1.gif'; // RDT-RRT path planning project image
 import mock05 from '../assets/images/mock05.png'; // Ashtachamma RL project image
 import mock06 from '../assets/images/mock06.png'; // UMP manufacturing image
 import mock07 from '../assets/images/mock07.png'; // Formation control project image
@@ -61,7 +61,7 @@ function Project() {
 
                 <div className="project">
                     <a href="https://drive.google.com/file/d/14DS_DjbjVYjh4gQbVFRcQz-QbF6dYiLD/view?usp=sharing" target="_blank" rel="noreferrer">
-                        <img src={mock04} className="zoom" alt="RDT-RRT Path Planning Thumbnail" width="90%" />
+                    <img src={rdtRrtGif} className="zoom" alt="RDT-RRT Path Planning GIF" width="90%" />
                     </a>
                     <div className="badge path-planning">🛣️ Path Planning</div>
                     <a href="https://drive.google.com/file/d/14DS_DjbjVYjh4gQbVFRcQz-QbF6dYiLD/view?usp=sharing" target="_blank" rel="noreferrer">

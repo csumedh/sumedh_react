@@ -1,0 +1,268 @@
+[
+    {
+      "category": "ROS 2",
+      "content": [
+        {
+          "type": "tile",
+          "title": "\ud83d\ude80 Getting Started with ROS 2 Humble",
+          "steps": [
+            {
+              "label": "Install ROS 2 Humble",
+              "code": "sudo apt update && sudo apt install ros-humble-desktop",
+              "link": "https://docs.ros.org/en/humble/Installation.html"
+            },
+            {
+              "label": "Source ROS 2 Setup File",
+              "code": "echo 'source /opt/ros/humble/setup.bash' >> ~/.bashrc\nsource ~/.bashrc",
+              "link": "https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment.html"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "text": "Ensure your system meets the prerequisites before installing ROS 2 Humble.",
+          "link": "https://docs.ros.org/en/humble/Installation.html"
+        },
+        {
+          "type": "list",
+          "text": "Regularly update your ROS 2 packages to benefit from the latest features and fixes. Use the command: sudo apt update && sudo apt upgrade"
+        }
+      ]
+    },
+    {
+      "category": "TurtleBot3",
+      "content": [
+        {
+          "type": "tile",
+          "title": "\ud83d\udc22 Setting Up TurtleBot3 with ROS 2 Humble",
+          "steps": [
+            {
+              "label": "Install TurtleBot3 Packages",
+              "code": "sudo apt install ros-humble-turtlebot3*",
+              "link": "https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/#pc-setup"
+            },
+            {
+              "label": "Set TurtleBot3 Model Environment Variable",
+              "code": "echo 'export TURTLEBOT3_MODEL=burger' >> ~/.bashrc\nsource ~/.bashrc",
+              "link": "https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/#pc-setup"
+            }
+          ]
+        },
+        {
+          "type": "tile",
+          "title": "\ud83d\udee0\ufe0f Simulating TurtleBot3 in Gazebo",
+          "steps": [
+            {
+              "label": "Install Gazebo and Dependent ROS 2 Packages",
+              "code": "sudo apt install ros-humble-gazebo-ros-pkgs ros-humble-gazebo-ros2-control ros-humble-turtlebot3-gazebo",
+              "link": "https://emanual.robotis.com/docs/en/platform/turtlebot3/simulation/#gazebo-simulation"
+            },
+            {
+              "label": "Launch TurtleBot3 in Gazebo",
+              "code": "ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py",
+              "link": "https://emanual.robotis.com/docs/en/platform/turtlebot3/simulation/#gazebo-simulation"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "text": "Refer to the official TurtleBot3 e-Manual for detailed setup instructions and documentation.",
+          "link": "https://emanual.robotis.com/docs/en/platform/turtlebot3/overview/"
+        },
+        {
+          "type": "list",
+          "text": "Simulate TurtleBot3 in Gazebo before deploying on actual hardware to test configurations safely.",
+          "link": "https://emanual.robotis.com/docs/en/platform/turtlebot3/simulation/"
+        }
+      ]
+    },
+    {
+      "category": "MoveIt",
+      "content": [
+        {
+          "type": "tile",
+          "title": "\ud83e\uddbe Integrating MoveIt with ROS 2",
+          "steps": [
+            {
+              "label": "Install MoveIt 2",
+              "code": "sudo apt install ros-humble-moveit",
+              "link": "https://moveit.picknik.ai/galactic/doc/tutorials/getting_started/getting_started_tutorial.html"
+            },
+            {
+              "label": "Launch MoveIt Setup Assistant",
+              "code": "ros2 launch moveit_setup_assistant setup_assistant.launch.py",
+              "link": "https://moveit.picknik.ai/galactic/doc/tutorials/setup_assistant/setup_assistant_tutorial.html"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "text": "Consult the MoveIt 2 tutorials for comprehensive guidance on motion planning.",
+          "link": "https://moveit.picknik.ai"
+        },
+        {
+          "type": "list",
+          "text": "Engage with the MoveIt community through forums for support and collaboration.",
+          "link": "https://discourse.ros.org/c/moveit"
+        }
+      ]
+    },
+    {
+      "category": "RViz",
+      "content": [
+        {
+          "type": "tile",
+          "title": "\ud83d\udda5\ufe0f Visualizing Data with RViz in ROS 2",
+          "steps": [
+            {
+              "label": "Install RViz",
+              "code": "sudo apt install ros-humble-rviz2",
+              "link": "https://docs.ros.org/en/humble/How-To-Guides/Using-RViz.html"
+            },
+            {
+              "label": "Launch RViz",
+              "code": "rviz2",
+              "link": "https://docs.ros.org/en/humble/Tutorials/Intermediate/RViz/Understanding-RViz.html"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "text": "Customize RViz displays to suit your project's visualization needs.",
+          "link": "https://docs.ros.org/en/humble/Tutorials/Intermediate/RViz/RViz-User-Guide.html"
+        },
+        {
+          "type": "list",
+          "text": "Save RViz configurations to quickly reload preferred display settings."
+        }
+      ]
+    },
+    {
+      "category": "Linux Troubleshooting",
+      "content": [
+        {
+          "type": "tile",
+          "title": "\ud83d\udee1\ufe0f Common Linux Issues and Fixes",
+          "steps": [
+            {
+              "label": "Permission Denied Errors",
+              "code": "chmod +x filename",
+              "link": "https://draculaservers.com/tutorials/common-linux-errors-and-troubleshooting/"
+            },
+            {
+              "label": "Command Not Found Errors",
+              "code": "sudo apt install package-name",
+              "link": "https://razorops.com/blog/linux-errors-solution-with-explanation"
+            },
+            {
+              "label": "Disk Space Issues",
+              "code": "df -h",
+              "link": "https://tuxcare.com/blog/5-common-linux-server-problems-and-how-to-fix-them/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Agile Product Development",
+      "content": [
+        {
+          "type": "list",
+          "text": "Familiarize yourself with the Agile Manifesto and its principles.",
+          "link": "https://www.agilealliance.org/agile101/the-agile-manifesto/"
+        },
+        {
+          "type": "list",
+          "text": "Read: The 21 Best Agile Product Management Resources.",
+          "link": "https://www.productboard.com/blog/the-21-best-agile-product-management-resources/"
+        },
+        {
+          "type": "list",
+          "text": "Join Agile communities such as Agile Alliance for news and events.",
+          "link": "https://www.agilealliance.org/"
+        }
+      ]
+    },
+    {
+      "category": "Software Troubleshooting",
+      "content": [
+        {
+          "type": "tile",
+          "title": "\ud83d\udd27 SolidWorks Common Issues and Solutions",
+          "steps": [
+            {
+              "label": "Slow Performance",
+              "code": "Optimize system settings and update graphics drivers.",
+              "link": "https://plmgroup.eu/articles/solving-common-solidworks-issues-a-quick-guide/"
+            },
+            {
+              "label": "Unexpected Crashes",
+              "code": "Run SolidWorks in Software OpenGL mode.",
+              "link": "https://www.solidsolutions.co.uk/solidworks-support/common-issues.aspx"
+            }
+          ]
+        },
+        {
+          "type": "tile",
+          "title": "\u2699\ufe0f ANSYS Troubleshooting Guide",
+          "steps": [
+            {
+              "label": "DOF Limit Exceeded Error",
+              "code": "Reduce model complexity or increase computational resources.",
+              "link": "https://www.drd.com/blog/troubleshooting-common-ansys/"
+            },
+            {
+              "label": "Licensing Issues",
+              "code": "Verify license server is running and properly configured.",
+              "link": "https://support.ansys.com/"
+            }
+          ]
+        },
+        {
+          "type": "tile",
+          "title": "\ud83e\udde9 Autodesk Inventor and Fusion 360 Errors",
+          "steps": [
+            {
+              "label": "Crashes During Rendering",
+              "code": "Update graphics drivers and disable GPU ray tracing.",
+              "link": "https://knowledge.autodesk.com/"
+            },
+            {
+              "label": "Installation Failures",
+              "code": "Use Autodesk Cleanup Utility and reinstall.",
+              "link": "https://www.autodesk.com/support/technical/article/caas/sfdcarticles/sfdcarticles/How-to-perform-a-clean-uninstall-of-Autodesk-software.html"
+            }
+          ]
+        }
+      ]
+    },
+    {
+        "category": "Presentation Media Tips",
+        "content": [
+          {
+            "type": "tile",
+            "title": "\ud83c\udf9e\ufe0f How to Extract and Save GIFs from PowerPoint or Google Slides",
+            "steps": [
+              {
+                "label": "From PowerPoint (PPTX file)",
+                "code": "1. Open the `.pptx` file in PowerPoint and **enable editing**.\n2. Navigate to the slide containing the GIF.\n3. Select the GIF and press `Ctrl + C` to copy it.\n4. Open a **new blank PowerPoint presentation** and paste it (`Ctrl + V`).\n5. Go to `File \u2192 Export \u2192 Create an Animated GIF`.\n6. Choose quality, set **duration** (match the actual GIF length), and export."
+              },
+              {
+                "label": "From Google Slides",
+                "code": "1. Go to `File \u2192 Download \u2192 Microsoft PowerPoint (.pptx)`.\n2. Open the downloaded file in PowerPoint.\n3. Follow the same steps above to extract the GIF via a new blank presentation."
+              }
+            ]
+          },
+          {
+            "type": "list",
+            "text": "Always use a new PowerPoint presentation to export the GIF to avoid formatting or layout issues."
+          },
+          {
+            "type": "list",
+            "text": "When exporting, make sure to match the GIF's playback duration under slide timing."
+          }
+        ]
+      }
+]
+
+
