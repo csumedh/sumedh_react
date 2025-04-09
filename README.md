@@ -24,7 +24,7 @@ This is my personal portfolio website built using **React + TypeScript**, featur
 - Frequently used hacks and resources
 
 ➡️ Visit: **[sumedhc.com](https://sumedhc.com)**
-[![Vercel](https://vercelbadge.vercel.app/api/csumedh/portfolio)](https://portfolio-csumedh.vercel.app)
+[![Vercel](https://vercelbadge.vercel.app/api/csumedh/portfolio)](https://sumedhc.com)
 > 🚧 Built using an open-source template by [Yuji Sato](https://github.com/yujisatojr/react-portfolio-template) and heavily customized for my own goals.
 
 ---
