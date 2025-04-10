@@ -146,7 +146,7 @@ function Project() {
 
                 <div className="project">
                     <a
-                        href="https://drive.google.com/file/d/1QAijZqzROOFWq7DK6RPdn-MUgvB7PhnB/view?usp=sharing"
+                        href="https://drive.google.com/drive/folders/1Cjrzdt-EP9QkUUmu6ijm7sEhPLKZYnxw?usp=sharing"
                         target="_blank"
                         rel="noreferrer"
                     >
@@ -156,7 +156,7 @@ function Project() {
                     <div className="badge robotics">🤖 Robotics</div>
                     <div className="badge controls">🧠 Emotion-Aware Systems</div>
                     <a
-                        href="https://drive.google.com/file/d/1QAijZqzROOFWq7DK6RPdn-MUgvB7PhnB/view?usp=sharing"
+                        href="https://drive.google.com/drive/folders/1Cjrzdt-EP9QkUUmu6ijm7sEhPLKZYnxw?usp=sharing"
                         target="_blank"
                         rel="noreferrer"
                         style={{ textDecoration: 'none', color: 'inherit' }}
