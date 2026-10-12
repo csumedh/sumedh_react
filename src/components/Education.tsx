@@ -43,7 +43,7 @@ function Education() {
           <div className="edu-content">
             <h2>2025</h2>
             <h3>MASTERS IN ROBOTICS</h3>
-            <p>University Of Maryland, College park</p>
+            <p>University Of Maryland, College Park</p>
             <img src={robotImg} alt="robot" />
           </div>
         </div>

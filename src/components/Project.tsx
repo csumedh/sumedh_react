@@ -5,6 +5,8 @@ import mock02 from '../assets/images/mock02.png'; // Robocon project image
 import mock03 from '../assets/images/mock03.png'; // Job shop paper project image
 import rdtRrtGif from '../assets/gifs/Picture1.gif'; // RDT-RRT path planning project image
 import mock05 from '../assets/images/mock05.png'; // Ashtachamma RL project image
+import Consulterps_gif from '../assets/gifs/Consulterps_gif.gif'; // Consulterps gif 
+import voltbeeGif from '../assets/gifs/Voltbee_gif.gif'; //Voltbee gif
 import mock06 from '../assets/images/mock06.png'; // UMP manufacturing image
 import mock07 from '../assets/images/mock07.png'; // Formation control project image
 import mock09 from '../assets/images/mock09.png'; // RoboHarvest project image
@@ -44,7 +46,48 @@ function Project() {
                         Designed, developed, and calibrated two autonomous robots for DD-Robocon 2021, hosted at IIT Delhi, achieving an All-India Rank 12. Engineered arrow-throwing and defensive mechanisms using SolidWorks, ANSYS, and MATLAB-Simulink. Led fabrication of custom end-effectors and arrow-picking systems, and optimized kinematics for precise task execution.
                     </p>
                 </div>
+                <div className="project">
+                    <a
+                        href="https://drive.google.com/file/d/16Q_yNCxHtar8axlNkeHSysspywBUDquk/view?usp=drive_link"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <img
+                            src={voltbeeGif}
+                            className="zoom"
+                            alt="Voltbee Quadruped Robot"
+                            width="90%"
+                        />
+                    </a>
 
+                    <div className="badge robotics">🤖 Robotics</div>
+                    <div className="badge controls">🎮 Controls</div>
+                    <div className="badge computervision">⚡ Embedded Systems</div>
+
+                    <a
+                        href="https://drive.google.com/file/d/16Q_yNCxHtar8axlNkeHSysspywBUDquk/view?usp=drive_link"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <h2>Voltbee – Custom Quadruped Robot</h2>
+                    </a>
+
+                    <p>
+                        Designed and built a custom 8-DOF quadruped robot using an ESP32-S3 and PCA9685 servo controller.
+                        Developed calibrated joint control, balance poses, and custom gait sequences for stable walking.
+                        Adapted and tuned open-source quadruped gait keyframes for the robot's mechanical configuration and servo geometry.
+                    </p>
+
+                    <p>
+                        <a
+                            href="https://drive.google.com/file/d/1SpIgmDTSfgkJsA-DD7wwh5VNB4I5QU37/view?usp=drive_link"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            ▶ Watch Demo Video
+                        </a>
+                    </p>
+                </div>
                 <div className="project">
                     <a href="https://www.researchgate.net/publication/370132451_Cost_Minimization_in_Job_Shop_Scheduling_Problem" target="_blank" rel="noreferrer">
                         <img src={mock03} className="zoom" alt="Job Shop Scheduling Project" width="90%" />
@@ -95,6 +138,24 @@ function Project() {
                     </a>
                     <p>
                         Designed an optimized smart manufacturing line for vitamin bottle packaging integrating automation, serialization, and smart grid technology. Simulated with FlexSim and validated throughput via dual monoblock configuration, solar-powered energy planning, and robotic palletization for industry-grade efficiency and sustainability.
+                    </p>
+                </div>
+                                <div className="project">
+                    <a href="https://consul-terps.vercel.app/" target="_blank" rel="noreferrer">
+                        <img
+                            src={Consulterps_gif}
+                            className="zoom"
+                            alt="ConsulTerps SelectSmart Framework Recommender"
+                            width="90%"
+                        />
+                    </a>
+                    <div className="badge computervision">💻 Full-Stack</div>
+                    <div className="badge path-planning">📊 Decision Support</div>
+                    <a href="https://github.com/csumedh/ConsulTerps" target="_blank" rel="noreferrer">
+                        <h2>SelectSmart – Project Framework Recommendation Platform</h2>
+                    </a>
+                    <p>
+                        Built a full-stack web application that recommends project management frameworks based on team structure, workflow flexibility, stakeholder interaction, constraints, and regulatory requirements. Developed an interactive React frontend, backend API integration, recommendation logic, and persistent result lookup using unique project IDs.
                     </p>
                 </div>
                 <div className="project">

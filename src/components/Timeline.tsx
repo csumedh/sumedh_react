@@ -1,3 +1,4 @@
+
 import React from "react";
 import '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,6 +13,38 @@ function Timeline() {
       <div className="items-container">
         <h1>Career History</h1>
         <VerticalTimeline>
+
+          <VerticalTimelineElement
+            className="vertical-timeline-element--work"
+            date="Apr 2026 – Present"
+            iconStyle={{ background: '#5000ca', color: 'white' }}
+            icon={<FontAwesomeIcon icon={faBriefcase} />}
+          >
+            <h3 className="vertical-timeline-element-title">Robotics and Automation Engineering Intern</h3>
+            <h4 className="vertical-timeline-element-subtitle">Axle, Frederick, Maryland</h4>
+            <p>
+              Integrated and commissioned robotic laboratory automation systems combining robotic arms, motion stages, barcode scanners, and laboratory instruments.
+              Designed and fabricated custom vial-handling mechanisms, pneumatic crimping assemblies, and septum needle insertion systems.
+              Integrated rotary rack storage and barcode scanning into automated workflows.
+              Developed Python HTTP device-control servers and supported integration with a centralized automation platform.
+            </p>
+          </VerticalTimelineElement>
+
+          <VerticalTimelineElement
+            className="vertical-timeline-element--work"
+            date="Sep 2025 – Apr 2026"
+            iconStyle={{ background: '#5000ca', color: 'white' }}
+            icon={<FontAwesomeIcon icon={faBriefcase} />}
+          >
+            <h3 className="vertical-timeline-element-title">Robotics Engineer</h3>
+            <h4 className="vertical-timeline-element-subtitle">Stealth Robotics Startup, Remote</h4>
+            <p>
+              Developing 3D CAD models and simulations for robotic adhesion and mobility systems.
+              Performing load, torque, and stability analyses for vertical surface operation.
+              Optimizing track and suction configurations for reliable wall traversal.
+              Preparing system architecture for future control and ROS integration.
+            </p>
+          </VerticalTimelineElement>
 
           <VerticalTimelineElement
             className="vertical-timeline-element--work"
